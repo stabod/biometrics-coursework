@@ -1,4 +1,4 @@
-from facemodel import FaceModel
+from .facemodel import FaceModel
 from sklearn.decomposition import PCA
 from numpy import argmin
 from scipy.spatial.distance import cdist

@@ -1,4 +1,4 @@
-from facemodel import FaceModel
+from .facemodel import FaceModel
 from skimage.feature import SIFT, match_descriptors
 from collections import defaultdict
 

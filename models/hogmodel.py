@@ -1,4 +1,4 @@
-from facemodel import FaceModel
+from .facemodel import FaceModel
 from skimage.feature import hog
 from numpy import argmin
 from scipy.spatial.distance import cdist

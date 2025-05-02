@@ -1,4 +1,4 @@
-from facemodel import FaceModel
+from .facemodel import FaceModel
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis as LDA
 from numpy import mean, array, argmin
 from scipy.spatial.distance import cdist

@@ -1,8 +1,5 @@
 from faceholder import FaceHolder
-from pcamodel import PCAModel
-from ldamodel import LDAModel
-from siftmodel import SIFTModel
-from hogmodel import HOGModel
+from models import *
 from sklearn.metrics import ConfusionMatrixDisplay
 import matplotlib.pyplot as plt
 
@@ -40,7 +37,7 @@ hogMatrix = ConfusionMatrixDisplay(confusion_matrix=hogmodel.confusion_matrix, d
 
 fig, axes = plt.subplots(2, 2)
 fig.suptitle("Confusion matrices")
-fig.set_size_inches(4, 4)
+fig.set_size_inches(8, 8)
 pcaMatrix.plot(ax=axes[0, 0], xticks_rotation="vertical")
 ldaMatrix.plot(ax=axes[0, 1], xticks_rotation="vertical")
 siftMatrix.plot(ax=axes[1, 0], xticks_rotation="vertical")
