@@ -28,7 +28,10 @@ class FaceHolder:
         
     def split_data(self, test_size=0.25, random=None):
         self.data_train, self.data_test, self.labels_train, self.labels_test = train_test_split(self.people_data, self.people_labels, test_size=test_size, random_state=random)
-        
+    
+    def get_image_size(self):
+        return (self.image_height, self.image_width)
+       
     def get_data(self):
         return (self.data_train, self.data_test)
     

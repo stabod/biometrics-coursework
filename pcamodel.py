@@ -1,5 +1,4 @@
 from facemodel import FaceModel
-
 from sklearn.decomposition import PCA
 from numpy import argmin
 from scipy.spatial.distance import cdist
@@ -20,7 +19,7 @@ class PCAModel(FaceModel):
     def predict_euclidean(self, labels_train):
         if type(labels_train) == None:
             raise TypeError()
-        self._distances = cdist(self.data_test, self.data_train, metric='euclidean')
+        self._distances = cdist(self.data_test, self.data_train, metric="euclidean")
         self.labels_prediction = labels_train[argmin(self._distances, axis=1)]
         
     def do_pipeline(self, data_train, data_test, labels_train, labels_test):
