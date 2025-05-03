@@ -5,7 +5,7 @@ from collections import defaultdict
 class SIFTModel(FaceModel):
     
     def __init__(self, min_matches_number=3):
-        super().__init__()
+        super().__init__("SIFT")
         self.SIFT = SIFT()
         self.data_train = list()
         self.data_test = list()
@@ -40,8 +40,8 @@ class SIFTModel(FaceModel):
         self.predict_euclidean(labels_train)
         self.analyze(labels_test)
         
-    def print_accuracy(self, name="SIFT"):
-        return super().print_accuracy(name)
-                
-            
-        
+    def clear(self):
+        super().clear()
+        self.data_train = list()
+        self.data_test = list()
+        self.labels_prediction = list()

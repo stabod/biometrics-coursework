@@ -1,12 +1,12 @@
 from .facemodel import FaceModel
 from skimage.feature import hog
 from numpy import argmin
-from scipy.spatial.distance import cdist
+from scipy.spatial.distance import euclidean
 
 class HOGModel(FaceModel):
     
     def __init__(self):
-        super().__init__()
+        super().__init__("HOG")
         self.data_train = list()
         self.data_test = list()
         self.labels_prediction = list()
@@ -24,14 +24,19 @@ class HOGModel(FaceModel):
             self.data_test.append(result)
             
     def predict_euclidean(self, labels_train):
-        self._distances = cdist(self.data_test, self.data_train, metric="euclidean")
-        self.labels_prediction = labels_train[argmin(self._distances, axis=1)]
+        for test_item in self.data_test:
+            distances = [euclidean(test_item, train_item) for train_item in self.data_train]
+            nearest = argmin(distances)
+            self.labels_prediction.append(labels_train[nearest])
             
     def do_pipeline(self, data_train, data_test, labels_train, labels_test, image_height, image_width):
         self.train(data_train, image_height, image_width)
         self.test(data_test, image_height, image_width)
         self.predict_euclidean(labels_train)
         self.analyze(labels_test)
-        
-    def print_accuracy(self, name="HOG"):
-        return super().print_accuracy(name)
+
+    def clear(self):
+        super().clear()
+        self.data_train = list()
+        self.data_test = list()
+        self.labels_prediction = list()
