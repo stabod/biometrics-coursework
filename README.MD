@@ -4,7 +4,6 @@ This repository contains some python scripts that compare the results of differe
 
 Uses Python 3.13 and the following packages:
 > scikit-learn  
-scikit-image  
-face-recognition  
+scikit-image   
 numpy  
 matplotlib

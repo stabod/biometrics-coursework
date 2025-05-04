@@ -9,6 +9,5 @@ manager.add_model(PCAModel())
 manager.add_model(LDAModel())
 manager.add_model(SIFTModel())
 manager.add_model(HOGModel())
-manager.add_model("Blah")
 
-manager.run(loops=1, visualize=True)
+manager.run()
