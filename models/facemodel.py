@@ -45,6 +45,9 @@ class FaceModel(ABC):
     def print_accuracy(self):
         print(f"Accuracy for {self.name}: {self.accuracy:.5f}")
         
+    def get_matrix(self):
+        return self.confusion_matrix
+        
     def clear(self):
         self.data_test = None
         self.data_train = None
